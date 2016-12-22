@@ -9,8 +9,25 @@ For example, if the input number is "2 3 5 4 5", the output should be "2 3 6 3 2
 
 class Solution(object):
 
-    def __init__(self, s):
-        self.s = s
+    def __init__(self):
+        self.data = []
+
+
+    def next_palindrome2(self, n):
+        if n < 0:
+            return 0;
+        n += 1
+        lst = list(str(n))
+        i = 0
+        j = int(len(lst)) - 1
+        while i < j:
+            if lst[i] < lst[j]:
+                lst[j - 1] = str(int(lst[j - 1]) + 1)
+            lst[j] = lst[i]
+            i += 1
+            j -= 1
+        return int(''.join(lst))
+
 
     def next_palindrome(self, s):
         if s is None or len(s) == 0:
@@ -64,7 +81,10 @@ class Solution(object):
                 return False
         return True
 
+obj = Solution()
 
-s = '103'
-obj = Solution(s)
+n = 111111
+print obj.next_palindrome2(n)
+
+s = str(n)
 print obj.next_palindrome(s)
