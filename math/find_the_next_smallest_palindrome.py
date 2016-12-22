@@ -15,7 +15,7 @@ class Solution(object):
 
     def next_palindrome2(self, n):
         if n < 0:
-            return 0;
+            return 0
         n += 1
         lst = list(str(n))
         i = 0
